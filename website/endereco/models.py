@@ -8,7 +8,7 @@ class Endereco(models.Model):
 
 
 class Telefone(models.Model):
-    codigo_de_area = models.CharField(max_lenght=2, default="11") 
-    numero = models.CharField(max_lenght=8)
+    codigo_de_area = models.CharField(max_length=2, default="11") 
+    numero = models.CharField(max_length=8)
 
 
