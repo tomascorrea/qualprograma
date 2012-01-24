@@ -1,0 +1,348 @@
+/*
+ * Scaffolding.scss
+ * Basic and global styles for generating a grid system, structural layout, and page templates
+ * ------------------------------------------------------------------------------------------- */
+/* variables.scss
+ * Variables and mixins to pre-ignite any new web development project
+ * ------------------------------------------------------------------ */
+/* Mixins.scss
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+/* variables.scss
+ * Variables and mixins to pre-ignite any new web development project
+ * ------------------------------------------------------------------ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000319}}
+.clearfix {
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.clearfix:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000379}}
+.fixed-container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.fixed-container:before, .fixed-container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.fixed-container:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000311}}
+body {
+  background-color: white;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000319}}
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.container:before, .container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.container:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000324}}
+.container-fluid {
+  position: relative;
+  min-width: 940px;
+  padding-left: 20px;
+  padding-right: 20px;
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.container-fluid:before, .container-fluid:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.container-fluid:after {
+  clear: both;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000330}}
+.container-fluid > .sidebar {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 220px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000337}}
+.container-fluid > .content {
+  margin-left: 240px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000347}}
+a {
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000352}}
+a:hover {
+  color: #00438a;
+  text-decoration: underline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000359}}
+.pull-right {
+  float: right;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000362}}
+.pull-left {
+  float: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000367}}
+.hide {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000370}}
+.show {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000379}}
+.row {
+  zoom: 1;
+  margin-left: -20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.row:before, .row:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.row:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000386}}
+.row > [class*="span"] {
+  display: inline;
+  float: left;
+  margin-left: 20px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span1 {
+  width: 40px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span2 {
+  width: 100px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span3 {
+  width: 160px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span4 {
+  width: 220px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span5 {
+  width: 280px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span6 {
+  width: 340px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span7 {
+  width: 400px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span8 {
+  width: 460px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span9 {
+  width: 520px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span10 {
+  width: 580px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span11 {
+  width: 640px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span12 {
+  width: 700px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span13 {
+  width: 760px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span14 {
+  width: 820px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span15 {
+  width: 880px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span16 {
+  width: 940px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span17 {
+  width: 1000px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span18 {
+  width: 1060px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span19 {
+  width: 1120px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span20 {
+  width: 1180px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span21 {
+  width: 1240px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span22 {
+  width: 1300px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span23 {
+  width: 1360px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000393}}
+.span24 {
+  width: 1420px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset1 {
+  margin-left: 80px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset2 {
+  margin-left: 140px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset3 {
+  margin-left: 200px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset4 {
+  margin-left: 260px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset5 {
+  margin-left: 320px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset6 {
+  margin-left: 380px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset7 {
+  margin-left: 440px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset8 {
+  margin-left: 500px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset9 {
+  margin-left: 560px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset10 {
+  margin-left: 620px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset11 {
+  margin-left: 680px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\0000399}}
+.row > .offset12 {
+  margin-left: 740px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\00003104}}
+.span-one-third {
+  width: 300px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\00003105}}
+.span-two-thirds {
+  width: 620px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\00003107}}
+.row > .offset-one-third {
+  margin-left: 340px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/scaffolding\.scss}line{font-family:\00003108}}
+.row > .offset-two-thirds {
+  margin-left: 660px;
+}

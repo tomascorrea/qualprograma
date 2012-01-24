@@ -1,0 +1,4 @@
+portal/settings_local.py
+compass/.sass-cache
+*.pyc
+*.swp

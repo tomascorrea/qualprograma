@@ -1,0 +1,126 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="{{ MEDIA_URL}}images/favicon.ico" />
+	
+	{% block seo-metatags %}
+	{% endblock seo-metatags %}
+  
+
+  {% block css %}
+  {% endblock css %}
+
+  
+  {% block top-js %}
+  {% endblock top-js %}
+  	
+	<title>{% block title %}{% endblock title %}</title>
+	
+</head>
+<body {% block body-attrs %}{% endblock body-attrs %}>
+
+{% block topbar %}
+<div class="topbar">
+  {% block topbar-inner %}
+    <div class="topbar-inner">
+    </div>
+  {% endblock %}
+</div>
+{% endblock %}
+
+
+<div class="{% block container-class %}container{% endblock %}">
+    {% block header-container %}
+  	<div id="header">
+  		  {% block header %}
+  			{% endblock header %}
+  			{% block ticker %}
+  			{% endblock %}
+  	</div>
+  	{% endblock header-container %}
+  	
+  	{% block before-main %}
+  	{% endblock before-main %}
+  	
+  	  {% block messages-container %}
+        <div id="messages">
+          {% block messages %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li{% if message.tags %} class="alert-message {{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+          {% endblock messages %}
+        </div>
+      {% endblock messages-container %}
+
+  	{% block main-container %}
+  	<div id="main" class="container">
+  	  {% block main-header %}
+  	  {% endblock main-header %}
+  	  
+  	  {% block main %}
+    	  {% block sidebar-first-container %}
+    		<div id="sidebar-first">
+    		  {% block sidebar-first %}
+    		  {% endblock sidebar-first %}
+    		</div>
+    		{% endblock sidebar-first-container %}
+    		
+        {% block content-container %}
+    		<div class="content" {% block content-attrs %}{% endblock content-attrs %}>
+    		  {% block content-header %}
+          {% endblock content-header %}
+      
+    		  {% block content %}
+    		  {% endblock content %}
+  
+          {% block content-footer %}
+          {% endblock content-footer %}
+    		</div>
+    		{% endblock content-container %}
+    		
+    		{% block sidebar-last-container %}
+    		<div id="sidebar-last">
+    		  {% block sidebar-last %}
+    		  {% endblock sidebar-last %}
+    		</div>
+    		{% endblock sidebar-last-container %}
+  		{% endblock main %}
+  		
+  		{% block main-footer %}
+      {% endblock main-footer %}
+      
+  	</div>
+  	{% endblock main-container %}
+  	
+  	{% block after-main %}
+    {% endblock after-main %}
+    
+    {% block footer-container %}
+    <footer>
+  	  {% block footer %}
+  		{% endblock footer %}
+  	 </footer>
+  	{% endblock footer-container %}
+</div>
+
+{% block js-externals %}
+<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+{% endblock js-externals %}
+
+
+{% block js %}
+{% endblock js %}
+
+{% block js-externals-after %}
+{% endblock js-externals-after %}
+
+</body>
+</html>
+
+

@@ -1,0 +1,50 @@
+{% extends "master.html" %}
+{% load i18n %}
+{% load cache %}
+
+{% block title %}
+Qual Programa - Obtenha a informação precisa e veja o filme certo.
+{% endblock title %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/bootstrap.css" />
+{% endblock css %}
+
+{% block top-js %}
+{% endblock top-js %}
+
+{% block topbar-inner %}
+<div class="topbar-inner">
+  <div class="container-fluid">
+    <a class="brand" href="{% url home %}">Home</a>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block before-main %}
+{% block breadcrumb-container %}
+<div class="breadcrumb">
+    {% block breadcrumb %}
+    <ul class="breadcrumb">
+      <li><a href="{% url home %}">Home</a></li>
+      {% block breadcrumb-items %}{% endblock breadcrumb-items %}
+    </ul>
+    {% endblock breadcrumb %}
+</div>
+{% endblock breadcrumb-container %}   
+
+{% endblock before-main %}
+  
+{% block footer %}
+  <p>&copy;2012 Qual Programa - Todos os direitos reservados</p>
+{% endblock footer %}
+
+{% block js-externals %}
+{% endblock js-externals %}
+
+{% block js %}
+{% endblock %}
+
+
+

@@ -1,0 +1,38 @@
+/* Mixins.scss
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+/* variables.scss
+ * Variables and mixins to pre-ignite any new web development project
+ * ------------------------------------------------------------------ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000319}}
+.clearfix {
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.clearfix:after {
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000379}}
+.fixed-container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000310}}
+.fixed-container:before, .fixed-container:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/tomas\/workspace-pessoal\/qualprograma\/compass\/src\/lib\/mixins\.scss}line{font-family:\0000315}}
+.fixed-container:after {
+  clear: both;
+}

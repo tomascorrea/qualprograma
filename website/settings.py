@@ -1,7 +1,11 @@
 # Django settings for website project.
 
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
@@ -47,6 +51,11 @@ MEDIA_URL = ''
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/media/'
 
+
+STATIC_ROOT = '%s/static/' % PROJECT_DIR
+STATIC_URL = "/static/"
+
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '=0@0xyamu^ig9qs+o!c@ui@lsv^@yzzw!%^t@%8aon&4e3d4gv'
 
@@ -77,6 +86,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'core',
     'cinema',
     'endereco',
 )
