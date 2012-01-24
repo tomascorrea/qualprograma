@@ -1,14 +1,29 @@
 {% extends "base.html" %}
+{% load bootstrap %}
+{% load i18n %}
+{% load webdesign %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/home.css" />
+{% endblock css %}
 
 {% block before-main %}
-
 {% endblock %}
 
 
 {% block content %}
 <div class="hero-unit search">
 <h2>O que voce está procurando?</h2>
-<p></p>
+<p>{% lorem 1 %}</p>
+
+<form action="." method="POST">
+		<fieldset>
+				{{ form|bootstrap }}
+		</fieldset>
+		<fieldset class="actions">
+			<input type="submit" name="submit" class="btn primary" value="{% trans "Search" %}">
+		</fieldset>
+</form>
 
 </div>
 {% endblock %}

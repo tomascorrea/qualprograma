@@ -1,0 +1,23 @@
+Downloading/unpacking django-bootstrap-form
+  Getting page http://pypi.python.org/simple/django-bootstrap-form
+  Could not fetch URL http://pypi.python.org/simple/django-bootstrap-form: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/django-bootstrap-form when looking for download links for django-bootstrap-form
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for django-bootstrap-form:
+  * http://pypi.python.org/simple/django-bootstrap-form/
+  Getting page http://pypi.python.org/simple/django-bootstrap-form/
+  Could not fetch URL http://pypi.python.org/simple/django-bootstrap-form/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/django-bootstrap-form/ when looking for download links for django-bootstrap-form
+  Could not find any downloads that satisfy the requirement django-bootstrap-form
+No distributions at all found for django-bootstrap-form
+Exception information:
+Traceback (most recent call last):
+  File "/home/tomas/python-virtualenv/django-1.3-python2.6/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/tomas/python-virtualenv/django-1.3-python2.6/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/tomas/python-virtualenv/django-1.3-python2.6/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/tomas/python-virtualenv/django-1.3-python2.6/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for django-bootstrap-form
