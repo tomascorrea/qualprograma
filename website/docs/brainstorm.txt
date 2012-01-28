@@ -1,0 +1,33 @@
+Robôs alimentam primariamente a base que pode (e provavelmente em algum momento deve) ser editorada.
+A informação principal é a sessão do cinema
+Informações básica sobre filmes
+Temporada é o período de eibição de um filme em uma sala.
+Quando não houver temporada será criada um temporada artificial de uma(?) semana.
+
+Busca por data e horário deve permitir:
+    período: manhã, tarde, noite
+    hora específica
+    próximo <dia da semana>
+    
+Informações sobre o filme no site devem ser sucintas. Informar URL(s) para outro(s) sites com informações mais detalhadas.
+
+Funcionalidades:
+    - busca por proximidade
+    - Como Chegar?
+    - Mapa
+    - Avaliações (Cinema/Sala, Filme)
+    - Mídias Sociais????
+    - Ingresso Fácil
+    - SMS
+    - Mailing
+    
+Informações sobre as sessões de um ciname devem ter uma fonte primária. Encontraremos diversas fontes com informações sobre vários cinemas/sessões. 
+Algumas serão mais confiáveis para alguns cinemas mas não para outros. Por exemplo o cinemark tem site próprio com informação sobre temporada inclusive.
+Provavelmente (mas não certamente, é necessário checar) é mais confiável que o do UOL/Folha. Que por sua vez pode ser a fonte primárias de cinemas sem site próprio.
+
+
+A busca principal é por filme, cinema e rede.
+
+A página de Filme mostra um pequeno resumo de sessões dos cinemas destaque
+
+A página de cinema mostra os filmes em cartaz com resumo de sessões

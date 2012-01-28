@@ -1,0 +1,1 @@
+- listener para sincronizar sessões quando houver alteração de temporada ou horários
