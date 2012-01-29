@@ -21,7 +21,7 @@ Funcionalidades:
     - SMS
     - Mailing
     
-Informações sobre as sessões de um ciname devem ter uma fonte primária. Encontraremos diversas fontes com informações sobre vários cinemas/sessões. 
+Informações sobre as sessões de um cinema devem ter uma fonte primária. Encontraremos diversas fontes com informações sobre vários cinemas/sessões. 
 Algumas serão mais confiáveis para alguns cinemas mas não para outros. Por exemplo o cinemark tem site próprio com informação sobre temporada inclusive.
 Provavelmente (mas não certamente, é necessário checar) é mais confiável que o do UOL/Folha. Que por sua vez pode ser a fonte primárias de cinemas sem site próprio.
 
