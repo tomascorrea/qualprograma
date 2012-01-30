@@ -11,22 +11,32 @@ class Rede(models.Model):
     nome = models.CharField(_(u"Nome"), max_length=200)
     url = models.CharField(_(u"url"), max_length=200)
 
+class ConfiguracaoPreco(models.Model):
+    valor = models.DecimalFieldx_(u"Preço"), max_digits=5, decimal_places=2)
+    dia_da_semana = models.IntegerField() #0 é igual a todos
+    hora = models.TimeField(null=True) #null vale para todos os horários
+    tipo_da_sala = models.CharField(max_lenth=100, default="normal")
+    tipo_da_filme = models.CharField(max_lenth=100, default="normal") #3D
+    matine = models.BooleanField(default=False)
+
 class Cinema(models.Model):
     rede = models.ForeignKey(Rede)
     endereco = models.OneToOneField(Endereco)
     telefones = models.ManyToManyField(Telefone)
     formas_de_pagamento = models.CharField(_(u"Formas de Pagamento"), max_length=200)
+    ultima_sessao_matine = models.TimeField()
 
 class Sala(models.Model):
     cinema = models.ForeignKey(Cinema)
     nome = models.CharField(_(u"Título"), max_length=200)
+    tipo = models.CharField(max_length=100, default='normal') #para salas tipo bradesco prime
 
 
 class Filme(models.Model):
     titulo = models.CharField(_(u"Título"), max_length=200)
     sinopse = models.TextField(_(u"Sinopse"))
     lancamento = models.BooleanField(_(u"Lançamento"), default=False)
-    categorias = models.CharField(max_length=200) #TODO: classe?
+    categorias = models.CharField(max_length=200) #TODO: classe ou tag?
     url = models.CharField(_(u"url"), max_length=200)
 
 class Temporada(models.Model):
