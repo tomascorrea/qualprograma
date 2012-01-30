@@ -11,4 +11,5 @@ class Telefone(models.Model):
     codigo_de_area = models.CharField(max_length=2, default="11") 
     numero = models.CharField(max_length=8)
 
-
+    def __unicode__(self):
+        return u'(%codigo_de_area) $(numero)'.format(codigo_de_area=self.codigo_de_area, numero=self.numero)
