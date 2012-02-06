@@ -1,5 +1,9 @@
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from haystack.forms import SearchForm as BaseSearchForm
 
-class SearchForm(forms.Form):
-	q = forms.CharField(label=_(u'Busca'))
+
+
+class SearchForm(BaseSearchForm):
+    pass

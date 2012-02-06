@@ -2,3 +2,5 @@ portal/settings_local.py
 compass/.sass-cache
 *.pyc
 *.swp
+website/cinema/tests/search_index
+website/search_index/
