@@ -12,6 +12,12 @@ class EmCartazParser(BeautifulSoup.BeautifulSoup):
                 if attr == u'href':
                     urls.append(BASE_URL+value)
         return urls
+
+    def get_titulos(self):
+        titulos = []
+        for item in self.findAll("div", {"class":"texto_item"}):
+            titulos.append(item.find("h3").text)
+        return titulos
             
 
 class FilmeParser(BeautifulSoup.BeautifulSoup):
@@ -23,4 +29,7 @@ class FilmeParser(BeautifulSoup.BeautifulSoup):
                 if attr == u"href":
                     urls.append((nome, BASE_URL+value))
         return urls
+    
+    
+
 

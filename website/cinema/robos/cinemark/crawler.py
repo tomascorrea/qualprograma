@@ -27,6 +27,12 @@ class CinemaCrawler(object):
             cinemas.append((nome, CinemaParser(cinema).cinema()))
         return cinemas
 
+    def get_titulos(self):
+        em_cartaz = urllib2.urlopen(self.url_em_cartaz)
+        return EmCartazParser(em_cartaz).get_titulos()
+
+
+
 if __name__ == "__main__":
     print CinemaCrawler().get_cinemas()
 
