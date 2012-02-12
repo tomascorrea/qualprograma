@@ -1,7 +1,11 @@
 # coding: utf-8
+import logging
 import urllib2
-from cinema import  CinemaParser
-from filme import FilmeParser, EmCartazParser
+from cinema_parser import  CinemaParser
+from filme_parser import FilmeParser, EmCartazParser
+from cinema.models import Rede
+
+logger = logging.getLogger('qualprograma.robos')
 
 class CinemaCrawler(object):
     url_em_cartaz = "http://www.cinemark.com.br/filmes/em-cartaz"
@@ -13,7 +17,6 @@ class CinemaCrawler(object):
         em_cartaz = urllib2.urlopen(self.url_em_cartaz)
         urls_filme = EmCartazParser(em_cartaz).urls_filme()
         for url_filme in urls_filme:
-            print url_filme
             filme = urllib2.urlopen(url_filme)
             for nome, url in FilmeParser(filme).urls_cinema():
                 cinemas.add((nome, url))
@@ -21,10 +24,11 @@ class CinemaCrawler(object):
 
     def get_cinemas(self):
         cinemas = []
+        rede, _ = Rede.objects.get_or_create(nome=u"Cinemark", url=u"www.cinemark.com.br")
         for nome, url in self.get_urls():
-            print nome, url
+            logger.info(':'.join([nome, url]))
             cinema = urllib2.urlopen(url)
-            cinemas.append((nome, CinemaParser(cinema).cinema()))
+            cinemas.append((nome, rede, CinemaParser(cinema).cinema()))
         return cinemas
 
     def get_titulos(self):
@@ -35,4 +39,3 @@ class CinemaCrawler(object):
 
 if __name__ == "__main__":
     print CinemaCrawler().get_cinemas()
-

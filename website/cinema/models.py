@@ -11,20 +11,31 @@ class Rede(models.Model):
     nome = models.CharField(_(u"Nome"), max_length=200)
     url = models.CharField(_(u"url"), max_length=200)
 
-class ConfiguracaoPreco(models.Model):
-    valor = models.DecimalField(_(u"Preço"), max_digits=5, decimal_places=2)
-    dia_da_semana = models.IntegerField() #0 é igual a todos
-    hora = models.TimeField(null=True) #null vale para todos os horários
-    tipo_da_sala = models.CharField(max_length=100, default="normal")
-    tipo_da_filme = models.CharField(max_length=100, default="normal") #3D
-    matine = models.BooleanField(default=False)
+    def __unicode__(self):
+        return self.nome
+
 
 class Cinema(models.Model):
     rede = models.ForeignKey(Rede)
+    nome = models.CharField(_(u"Nome"), max_length=100)
     endereco = models.OneToOneField(Endereco)
     telefones = models.ManyToManyField(Telefone)
-    formas_de_pagamento = models.CharField(_(u"Formas de Pagamento"), max_length=200)
-    ultima_sessao_matine = models.TimeField()
+    formas_de_pagamento = models.CharField(_(u"Formas de Pagamento"), null=True, max_length=200)
+    ultima_sessao_matine = models.TimeField(null=True)
+
+    def __unicode__(self):
+        return u':'.join([self.rede.nome, self.nome])
+
+HUMAN_DAYS = {1:'2a', 2: '3a', 3:'4a', 4:'5a', 5:'6a', '6':'sáb', 7:'dom'}
+class ConfiguracaoPreco(models.Model):
+    cinema = models.ForeignKey(Cinema)
+    valor = models.DecimalField(_(u"Preço"), max_digits=5, decimal_places=2)
+    dia_da_semana = models.IntegerField() #0 é igual a todos, 1 é 2a (isoweekay)
+    hora = models.TimeField(null=True) #null vale para todos os horários
+    tipo_da_sala = models.CharField(max_length=100, default="normal")
+    tipo_do_filme = models.CharField(max_length=100, default="normal") #3D
+    matine = models.BooleanField(default=False)
+
 
 class Sala(models.Model):
     cinema = models.ForeignKey(Cinema)

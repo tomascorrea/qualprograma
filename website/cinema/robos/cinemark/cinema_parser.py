@@ -1,4 +1,5 @@
 # coding: utf-8
+import logging
 import re
 import urllib2
 import BeautifulSoup
@@ -12,6 +13,9 @@ preço promocional: aplicado para filmes que não são 3d
 sessão desconto: horário e dia definidos. Todas as salas? 3d também? Se o filme começa neste horário vale este preço? Ignorando por hora.
 tratar feriados: bosta! ou levanta todos ou @$#%@#$%$%$%$%! colocamos os preços incluindo exceto feriados ou algo assim.
 """
+
+logger = logging.getLogger('qualprograma.robos')
+
 class CinemaParser(BeautifulSoup.BeautifulSoup):
     """
     * <h4>Av. Dr. Chucri Zaidan, 920 - Vila Cordeiro
@@ -25,6 +29,7 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
 
     def cinema(self):
         #TODO achar cidade - <nome> - <cidade>
+        
         return {'endereco': self.endereco,
                 'telefone': self.telefone,
                 'precos': self.precos}
@@ -38,17 +43,35 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
 
     @property
     def endereco(self):
-        return self.endereco_telefone().split('\n')[0].strip()
+        try:
+            return self.endereco_telefone().split('\n')[0].strip()
+        except IndexError:
+            logger.ERROR(u'Não consegui extrair endereco de {0}'.format(self.endereco_telefone()))
+            return ''
 
     @property
     def telefone(self):
         res = {'codigo_de_area':'', 'numero':''}
         endereco_telefone = self.endereco_telefone()
-        if 'Fone :' in endereco_telefone:
-            bloco_telefone = endereco_telefone.split('Fone:')[1].strip()
-            res['codigo_de_area'] = bloco_telefone.split(' ')[0].strip('(').strip(')')
-            res['numero'] = bloco_telefone.split(' ')[1].strip()
-        
+        if 'Fone:' in endereco_telefone:
+            try:
+                bloco_telefone = endereco_telefone.split('Fone :')[1].strip()
+            except IndexError:
+                logger.ERROR(u'Não consegui extrair código de área de {0}'.format(endereco_telefone))
+                return {'codigo_de_area':'', 'numero':''}
+            try:
+                res['codigo_de_area'] = bloco_telefone.split(' ')[0].strip('(').strip(')')
+            except IndexError:
+                logger.ERROR(u'Não consegui extrair código de área de {0}'.format(endereco_telefone))
+                return {'codigo_de_area':'', 'numero':''}
+            try:
+                res['numero'] = bloco_telefone.split(' ')[1].strip()
+            except IndexError:
+                logger.ERROR(u'Não consegui extrair número de {0}'.format(endereco_telefone))
+                return {'codigo_de_area':'', 'numero':''}
+        else:
+            import ipdb;ipdb.set_trace()
+            logger.warning(u'Não encontrei telefone em {0}'.format(endereco_telefone))
         return res
 
     def ignorar(self, valor):
@@ -121,7 +144,11 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
         2ª,3ª e 5ª: R$ 13,00 (matinê) - R$ 15,00 (noite)
         6ª,Sab.,Dom. e Feriados: R$ 15,00 (matinê) - R$ 19,00 (noite)
         """
-        dias, precos = valor.strip().split(':')
+        try:
+            dias, precos = valor.strip().split(':')
+        except ValueError:
+            logger.error(u'Não consegui extrair preços e dias de {0}'.format(unicode(valor)))
+            return []
         dias = dias.replace(' e ',',').split(',')
         dias = [self.parse_dia(dia) for dia in dias if dia]
         precos = self.parse_precos_e_condicoes(precos)

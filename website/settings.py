@@ -24,6 +24,53 @@ DATABASES = {
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+LOG_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'log')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': { 
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler', 
+            'formatter': 'verbose',        
+            'filename': os.path.join(LOG_ROOT, 'qualprograma.log') 
+        },
+        'robo': {  
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',        
+            'filename': os.path.join(LOG_ROOT, 'robos.log') 
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler', 
+            'formatter': 'simple',        
+        },
+
+    },
+    'loggers': {
+        'qualprograma': {    
+            'handlers': ['file'], 
+            'level': 'INFO',     
+            'propagate': True,
+        },     
+
+        'qualprograma.robos': { 
+            'handlers': ['robo', 'console'], 
+            'level': 'DEBUG',     
+            'propagate': True,
+        },        
+    }       
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
