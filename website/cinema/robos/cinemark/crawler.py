@@ -13,6 +13,7 @@ class CinemaCrawler(object):
         em_cartaz = urllib2.urlopen(self.url_em_cartaz)
         urls_filme = EmCartazParser(em_cartaz).urls_filme()
         for url_filme in urls_filme:
+            print url_filme
             filme = urllib2.urlopen(url_filme)
             for nome, url in FilmeParser(filme).urls_cinema():
                 cinemas.add((nome, url))
@@ -21,6 +22,7 @@ class CinemaCrawler(object):
     def get_cinemas(self):
         cinemas = []
         for nome, url in self.get_urls():
+            print nome, url
             cinema = urllib2.urlopen(url)
             cinemas.append((nome, CinemaParser(cinema).cinema()))
         return cinemas
