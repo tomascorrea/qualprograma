@@ -4,3 +4,4 @@ compass/.sass-cache
 *.swp
 website/cinema/tests/search_index
 website/search_index/
+*.log
