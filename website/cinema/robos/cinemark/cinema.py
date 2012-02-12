@@ -12,7 +12,7 @@ preço promocional: aplicado para filmes que não são 3d
 sessão desconto: horário e dia definidos. Todas as salas? 3d também? Se o filme começa neste horário vale este preço? Ignorando por hora.
 tratar feriados: bosta! ou levanta todos ou @$#%@#$%$%$%$%! colocamos os preços incluindo exceto feriados ou algo assim.
 """
-class CinemarkCinemaParser(BeautifulSoup.BeautifulSoup):
+class CinemaParser(BeautifulSoup.BeautifulSoup):
     """
     * <h4>Av. Dr. Chucri Zaidan, 920 - Vila Cordeiro
             Fone: (011) 3048-7400</h4>
@@ -21,7 +21,7 @@ class CinemarkCinemaParser(BeautifulSoup.BeautifulSoup):
     """
     def __init__(self, *args, **kwargs):
         kwargs['convertEntities']=BeautifulSoup.BeautifulSoup.HTML_ENTITIES
-        super(CinemarkCinemaParser, self).__init__(*args, **kwargs)
+        super(CinemaParser, self).__init__(*args, **kwargs)
 
     def cinema(self):
         #TODO achar cidade - <nome> - <cidade>
@@ -156,51 +156,4 @@ class CinemarkCinemaParser(BeautifulSoup.BeautifulSoup):
     def salas(self):
         #TODO descobrir salas especiais como bradesco prime
         return []
-
-BASE_URL = "http://www.cinemark.com.br"
-
-class EmCartazParser(BeautifulSoup.BeautifulSoup):
-    def urls_filme(self):
-        urls = []
-        for attrs in [i.find("a").attrs for i in self.findAll("div", {"class":"texto_item"})]:
-            for attr, value in attrs:
-                if attr == u'href':
-                    urls.append(BASE_URL+value)
-        return urls
-            
-
-class FilmeParser(BeautifulSoup.BeautifulSoup):
-    def urls_cinema(self):
-        urls = []
-        for tag_a in [i.find("a") for i in self.findAll("div", {"class":"filme"})]:
-            nome = tag_a.string
-            for attr, value in tag_a.attrs:
-                if attr == u"href":
-                    urls.append((nome, BASE_URL+value))
-        return urls
-
-class CinemaCrawler(object):
-    url_em_cartaz = "http://www.cinemark.com.br/filmes/em-cartaz"
-    urls = ['http://www.cinemark.com.br/programacao/palmas/capim-dourado/31/661',]
-
-    def get_urls(self):
-        #TODO: Navegar pelos filmes em cartaz e decobrir as urls de cinema
-        cinemas = set()
-        em_cartaz = urllib2.urlopen(self.url_em_cartaz)
-        urls_filme = EmCartazParser(em_cartaz).urls_filme()
-        for url_filme in urls_filme:
-            filme = urllib2.urlopen(url_filme)
-            for nome, url in FilmeParser(filme).urls_cinema():
-                cinemas.add((nome, url))
-        return cinemas
-
-    def get_cinemas(self):
-        cinemas = []
-        for nome, url in self.get_urls():
-            cinema = urllib2.urlopen(url)
-            cinemas.append((nome, CinemarkCinemaParser(cinema).cinema()))
-        return cinemas
-
-if __name__ == "__main__":
-    print CinemaCrawler().get_cinemas()
 
