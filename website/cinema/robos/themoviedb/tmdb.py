@@ -13,14 +13,14 @@ __version__ = "0.5"
 
 config = {}
 
-def configure(api_key):
+def configure(api_key, lang='pt-BR'):
     config['apikey'] = api_key
     config['urls'] = {}
-    config['urls']['movie.search'] = "http://api.themoviedb.org/2.1/Movie.search/en/xml/%(apikey)s/%%s" % (config)
-    config['urls']['movie.getInfo'] = "http://api.themoviedb.org/2.1/Movie.getInfo/en/xml/%(apikey)s/%%s" % (config)
-    config['urls']['media.getInfo'] = "http://api.themoviedb.org/2.1/Media.getInfo/en/xml/%(apikey)s/%%s/%%s" % (config)
-    config['urls']['imdb.lookUp'] = "http://api.themoviedb.org/2.1/Movie.imdbLookup/en/xml/%(apikey)s/%%s" % (config)
-    config['urls']['movie.browse'] = "http://api.themoviedb.org/2.1/Movie.browse/en-US/xml/%(apikey)s?%%s" % (config)
+    config['urls']['movie.search'] = "http://api.themoviedb.org/2.1/Movie.search/{lang}/xml/{api_key}/%s".format(lang=lang,api_key=api_key)
+    config['urls']['movie.getInfo'] = "http://api.themoviedb.org/2.1/Movie.getInfo/{lang}/xml/{api_key}/%s".format(lang=lang,api_key=api_key)
+    config['urls']['media.getInfo'] = "http://api.themoviedb.org/2.1/Media.getInfo/{lang}/xml/{api_key}/%s/%%s".format(lang=lang,api_key=api_key)
+    config['urls']['imdb.lookUp'] = "http://api.themoviedb.org/2.1/Movie.imdbLookup/{lang}/xml/{api_key}/%s".format(lang=lang,api_key=api_key)
+    config['urls']['movie.browse'] = "http://api.themoviedb.org/2.1/Movie.browse/{lang}/xml/{api_key}?%s".format(lang=lang,api_key=api_key)
 
 import os,struct,urllib,urllib2,xml.etree.cElementTree as ElementTree
 
@@ -724,6 +724,7 @@ def searchByHashingFile(filename):
     return mediaGetInfo(opensubtitleHashFile(filename), os.path.size(filename))
 
 def main():
+    configure('324234')
     results = search("Fight Club")
     searchResult = results[0]
     movie = getMovieInfo(searchResult['id'])
