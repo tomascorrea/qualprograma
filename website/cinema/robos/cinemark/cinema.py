@@ -42,10 +42,14 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
 
     @property
     def telefone(self):
+        res = {'codigo_de_area':'', 'numero':''}
         endereco_telefone = self.endereco_telefone()
-        codigo_de_area = endereco_telefone.split('\n')[1].split(':')[1].strip().split(' ')[0].strip('(').strip(')')
-        numero = endereco_telefone.split('\n')[1].split(':')[1].strip().split(' ')[1].strip()
-        return {'codigo_de_area':codigo_de_area, 'numero':numero}
+        if 'Fone :' in endereco_telefone:
+            bloco_telefone = endereco_telefone.split('Fone:')[1].strip()
+            res['codigo_de_area'] = bloco_telefone.split(' ')[0].strip('(').strip(')')
+            res['numero'] = bloco_telefone.split(' ')[1].strip()
+        
+        return res
 
     def ignorar(self, valor):
         if isinstance(valor, BeautifulSoup.Tag):
@@ -119,7 +123,6 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
         """
         dias, precos = valor.strip().split(':')
         dias = dias.replace(' e ',',').split(',')
-        import ipdb;ipdb.set_trace()
         dias = [self.parse_dia(dia) for dia in dias if dia]
         precos = self.parse_precos_e_condicoes(precos)
         res = []
@@ -134,7 +137,6 @@ class CinemaParser(BeautifulSoup.BeautifulSoup):
         res = {}
         tipo_atual = 'desconhecido'
         res[tipo_atual] = []
-        import ipdb;ipdb.set_trace()
         for content in contents:
             if self.ignorar(content):
                 continue
