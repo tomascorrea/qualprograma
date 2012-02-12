@@ -12,11 +12,11 @@ class Rede(models.Model):
     url = models.CharField(_(u"url"), max_length=200)
 
 class ConfiguracaoPreco(models.Model):
-    valor = models.DecimalFieldx_(u"Preço"), max_digits=5, decimal_places=2)
+    valor = models.DecimalField(_(u"Preço"), max_digits=5, decimal_places=2)
     dia_da_semana = models.IntegerField() #0 é igual a todos
     hora = models.TimeField(null=True) #null vale para todos os horários
-    tipo_da_sala = models.CharField(max_lenth=100, default="normal")
-    tipo_da_filme = models.CharField(max_lenth=100, default="normal") #3D
+    tipo_da_sala = models.CharField(max_length=100, default="normal")
+    tipo_da_filme = models.CharField(max_length=100, default="normal") #3D
     matine = models.BooleanField(default=False)
 
 class Cinema(models.Model):
@@ -38,6 +38,9 @@ class Filme(models.Model):
     lancamento = models.BooleanField(_(u"Lançamento"), default=False)
     categorias = models.CharField(max_length=200) #TODO: classe ou tag?
     url = models.CharField(_(u"url"), max_length=200)
+
+    def __unicode__(self):
+        return self.titulo
 
 class Temporada(models.Model):
     sala = models.ForeignKey(Sala)

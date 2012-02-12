@@ -1,21 +1,8 @@
 {% extends "base.html" %}
 {% load bootstrap %}
 {% load i18n %}
-{% load webdesign %}
-
-{% block css %}
-<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}stylesheets/home.css" />
-{% endblock css %}
-
-{% block before-main %}
-{% endblock %}
-
 
 {% block content %}
-<div class="hero-unit search">
-<h2>O que voce está procurando?</h2>
-<p>{% lorem 1 %}</p>
-
 <form action="{% url busca %}" method="get">
 		<fieldset>
 				{{ form|bootstrap }}
@@ -25,5 +12,14 @@
 		</fieldset>
 </form>
 
-</div>
+{% if page.object_list %}
+<ul class="search-result">
+{% for result in page.object_list %}
+    <li class="search_item">
+        {{ result.titulo }}
+    </li>
+{% endfor %}
+<ul>
+{% endif %}
+
 {% endblock %}

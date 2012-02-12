@@ -12,6 +12,7 @@ from core.views import home
 
 urlpatterns = patterns('',
     url(r'^$', home, name="home"),
+    (r'^busca/', include('busca.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 

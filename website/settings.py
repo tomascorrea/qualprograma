@@ -88,7 +88,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.webdesign',
     'bootstrapform',
+    'haystack',
     'core',
     'cinema',
     'endereco',
+    'busca',
 )
+
+
+HAYSTACK_SITECONF = 'busca.indexes'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = '%s/search_index' % PROJECT_DIR
