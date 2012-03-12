@@ -10,10 +10,9 @@ logger = logging.getLogger('qualprograma.robos')
 class Command(NoArgsCommand):
     
     def handle(self, *args, **options):
-        print "Starting crawlers"
         ConfiguracaoPreco.objects.all().delete()
         Cinema.objects.all().delete()
-        for nome, rede, dados in CinemaCrawler().get_cinemas():
+        for nome, url, rede, dados in CinemaCrawler().get_cinemas():
             try:
                 cinema = Cinema.objects.get(rede = rede, nome=nome)
             except Cinema.DoesNotExist:
@@ -21,7 +20,7 @@ class Command(NoArgsCommand):
             if not cinema:    
                 if dados['endereco']:
                     endereco = Endereco.objects.create(endereco=dados['endereco'])
-                cinema = Cinema.objects.create(rede = rede, nome=nome, endereco=endereco)
+                cinema = Cinema.objects.create(rede = rede, nome=nome, endereco=endereco, url=url)
                 if dados['telefone']:
                     telefone = Telefone.objects.create(codigo_de_area = dados['telefone']['codigo_de_area'], 
                                                        numero = dados['telefone']['numero'])

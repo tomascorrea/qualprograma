@@ -6,6 +6,9 @@ from django.db import models
 class Endereco(models.Model):
     endereco = models.TextField()
 
+    def __unicode__(self):
+        return unicode(self.endereco)
+
 
 class Telefone(models.Model):
     codigo_de_area = models.CharField(max_length=2, default="11") 

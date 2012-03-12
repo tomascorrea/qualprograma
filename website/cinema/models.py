@@ -18,6 +18,7 @@ class Rede(models.Model):
 class Cinema(models.Model):
     rede = models.ForeignKey(Rede)
     nome = models.CharField(_(u"Nome"), max_length=100)
+    url = models.CharField(_(u"url"), max_length=200)
     endereco = models.OneToOneField(Endereco)
     telefones = models.ManyToManyField(Telefone)
     formas_de_pagamento = models.CharField(_(u"Formas de Pagamento"), null=True, max_length=200)
@@ -78,9 +79,11 @@ class Sessao(models.Model):
     inicio = models.DateTimeField(_(u"Início"))
     preco = models.DecimalField(_(u"Preço"), max_digits=5, decimal_places=2)
     dublado = models.BooleanField(_(u"Dublado"), default=False)
+    legendado = models.BooleanField(_(u"Legendado"), default=False)
     promocao = models.BooleanField(_(u"Promoção"), default=False)
     tres_d = models.BooleanField(_(u"3D"), default=False)
     estreia = models.BooleanField(_(u"Estréia"), default=False)
+    materna = models.BooleanField(_(u"Materna"), default=False)
 
     class Meta:
         verbose_name_plural = _(u"Sessões")
